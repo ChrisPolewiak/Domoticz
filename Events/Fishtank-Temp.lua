@@ -34,40 +34,34 @@ return {
 
             -- Cooling
             -- If Fishtank Water Temp is very high turn off light
-            if ( current_water_temp > turnofflight_tempmin and domoticz.devices( device_FishtankLight_IDX )._state == 'On' ) then
+            if ( current_water_temp > turnofflight_tempmin ) then
                 domoticz.log('Fishtank temp ' .. current_water_temp .. ' > ' .. turnofflight_tempmin .. ': Turn Light Off', INFO)
                 domoticz.devices( device_FishtankLight_IDX ).switchOff()
-                domoticz.devices( device_FishtankFan_IDX ).switchOn()
+                domoticz.devices( device_FishtankFan_IDX ).switchOn().afterSec(1)
             end
 
             -- Cooling
             -- If Fishtank Water Temp is high turn on fan
-            if ( current_water_temp > cooling_tempmax and domoticz.devices( device_FishtankFan_IDX )._state == 'Off' ) then
+            if ( current_water_temp > cooling_tempmax ) then
                 domoticz.log('Fishtank temp ' .. current_water_temp .. ' > ' .. cooling_tempmax .. ': Turn On Fan', INFO)
                 domoticz.devices( device_FishtankFan_IDX ).switchOn()
-                domoticz.devices( device_FishtankHeater_IDX ).switchOff()
-        
-            -- Cooling
+                domoticz.devices( device_FishtankHeater_IDX ).switchOff().afterSec(1)
             -- If Fishtank Water Temp back to normal, turn off fan
-            elseif ( current_water_temp < cooling_tempmin and domoticz.devices( device_FishtankFan_IDX )._state == 'On' ) then
+            elseif ( current_water_temp < cooling_tempmin ) then
                 domoticz.log('Fishtank temp ' .. current_water_temp .. ' < ' .. cooling_tempmin .. ': Turn Off Fan', INFO)
                 domoticz.devices( device_FishtankFan_IDX ).switchOff()
             end
 
             -- Heating
             -- If Fishtank Water Temp back to normal, turn off heater
---            if ( current_water_temp > heating_tempmax and domoticz.devices( device_FishtankHeater_IDX )._state == 'On' ) then
             if ( current_water_temp > heating_tempmax ) then
                 domoticz.log('Fishtank temp ' .. current_water_temp .. ' > ' .. heating_tempmax .. ': Turn Heating Off', INFO)
                 domoticz.devices( device_FishtankHeater_IDX ).switchOff()
-        
-            -- Heating
             -- If Fishtank Water Temp is to low, turn on heater
---            elseif ( current_water_temp < heating_tempmin and domoticz.devices( device_FishtankHeater_IDX )._state == 'Off' ) then
             elseif ( current_water_temp < heating_tempmin ) then
                 domoticz.log('Fishtank temp ' .. current_water_temp .. ' < ' .. heating_tempmin .. ': Turn Heating On', INFO)
                 domoticz.devices( device_FishtankHeater_IDX ).switchOn()
-                domoticz.devices( device_FishtankFan_IDX ).switchOff()
+                domoticz.devices( device_FishtankFan_IDX ).switchOff().afterSec(1)
             end
 
         end
