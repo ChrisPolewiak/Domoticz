@@ -1,0 +1,30 @@
+
+POWER
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' power false
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' power true
+
+FANMODE
+	idle, auto, silent or favorite
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' fanmode idle
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' fanmode auto
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' fanmode silent
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' fanmode favorite
+
+FANSPEED
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' fanspeed 1
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' fanspeed 16
+
+
+
+BUZZER
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' buzzer true
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' buzzer false
+
+
+
+
+LIGHT
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' led true
+	/opt/xiaomi/airpurifier.js 10.150.15.74 '3320e20fd45a019f67486cb8e4aac6c5' led false
+
+bright, dim or off
